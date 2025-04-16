@@ -1,0 +1,26 @@
+
+<h1>{{value()}}</h1>
+<h3>computed value change bcoz of signalvalue {{computedValue()}}</h3>
+<button (click)="IncrementValue()">increment</button>
+
+@if(students.length === 0){
+    <h2> student array is empty!!</h2>
+}
+
+@for(student of students;track student ;
+let i = $index ; 
+let count = $count ;
+ ){
+    <h4>{{i}}{{student}}</h4>
+    @if( i == students.length-1){
+        <h3>count : {{count}}</h3>
+    }
+    @if($odd){
+        <h4>i am odd {{i}}</h4>
+    }
+   
+    
+
+}
+<input type="text"  [(ngModel)]="data"/>
+<h4>two-way data binding : {{data}}</h4>
