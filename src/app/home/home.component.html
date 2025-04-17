@@ -1,0 +1,14 @@
+<h1>Home Page</h1>
+
+ <!-- <a [routerLink]="['/about' , {name: 'niteshi sah'}]">Visit about page</a> -->
+
+<button (click)="handleNavigate()">Visit About Page</button>
+
+<div>
+    
+    @for( student of students ; track student.id){
+       <a routerLink="/user/{{student.id}}/{{student.name}}">{{student.name}}</a> <br>
+    
+    }
+    
+    </div>

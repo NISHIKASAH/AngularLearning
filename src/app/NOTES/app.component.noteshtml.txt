@@ -1,0 +1,57 @@
+<div class="root-component">
+  
+<app-maincomp>
+</app-maincomp>
+
+<app-maincomp>
+</app-maincomp>
+
+<app-maincomp>
+</app-maincomp>
+</div>
+<app-counter-app></app-counter-app>
+<div style="margin-top : 10px">
+   
+        <h1>{{name}}</h1>
+        <input type="text"  #inputValue>
+        <button (click)="getInput($event)">getName</button>
+        <button (click)="setInput(inputValue.value)">setName</button>
+  
+</div>
+<div>
+    <button (click)="handleColor()">change-color</button>
+    @switch(value){
+        @case('red'){
+            <h1>its a red</h1>
+        }
+        @case('blue'){
+            <h1>its a blue </h1>
+        }
+        @case('yellow'){
+            <h1>its a yellow</h1>
+        }
+        @case('green'){
+            <h1>its a green</h1>
+        }
+        @default {
+            <h1>its a default case</h1>
+        }
+    }
+</div>
+@for(student of students ;track student ){
+    <h1>{{student.name}} </h1>
+    <h2>{{student.age}}</h2>
+    <button (click)="getName(student.name)">getName</button>
+
+}
+<br>
+<br>
+
+<h3>{{count()}}</h3>
+<h3>{{signalData()}}</h3>
+<h3>checking computed {{computedData()}}</h3>
+<h3>numberic vale {{numbericSignal()}}</h3>
+<button  (click)="handleValue()">increment</button>
+
+<!-- learning other features  -->
+<app-learning></app-learning>

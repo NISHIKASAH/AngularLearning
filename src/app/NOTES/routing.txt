@@ -1,0 +1,58 @@
+export class AboutComponent {
+  routerVal : string | null  = "";
+  constructor( private route : ActivatedRoute){
+  }
+  ngOnInit(){
+    // this.routerVal = this.route.snapshot.paramMap.get('name')
+    // console.log("router" , this.routerVal)
+
+   this.route.queryParams.subscribe(params => 
+      this.routerVal = params['name']
+    )
+    
+  }
+} 
+//home component.ts
+export class HomeComponent {
+
+
+  constructor( private router : Router){}
+  handleNavigate(){
+    this.router.navigate(['/about'] , {queryParams : {name :'nishika sah'}})
+  }
+
+}
+//home component.html
+<h1>Home Page</h1>
+
+ <!-- <a [routerLink]="['/about' , {name: 'niteshi sah'}]">Visit about page</a> -->
+
+<button (click)="handleNavigate()">Visit About Page</button>
+
+//app.route.ts 
+
+export const routes: Routes = [
+    {
+        path : "login" , component : LoginComponent
+    },
+    {
+        path: "contact" , component : ContactComponent
+    },
+    {
+        path : "about" , component :AboutComponent
+    },
+    {
+        path : "home" , component : HomeComponent
+    }
+];
+
+//app.component.html
+<router-outlet>
+    <a routerLink="home" >home</a>
+    <a routerLink="/about">about
+    </a>
+    <a routerLink="/contact">contact
+    </a>
+    <a routerLink="/login">login
+    </a>
+</router-outlet>
