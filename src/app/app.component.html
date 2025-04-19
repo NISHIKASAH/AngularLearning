@@ -8,5 +8,10 @@
     </a>
 
 </router-outlet>
+<app-usercomponent [user] = "'daksha'" [data] ="'hello ,its weekend'"></app-usercomponent>
 
+<!-- <app-usercomponent (messageEvent)="receiveMessage($event)" ></app-usercomponent>
+<p>sjkjch sdhcj{{message}}</p> -->
 
+<app-usercomponent (childMessage)="parenFunction($event)"></app-usercomponent>
+<p>{{datafromChild }}</p>
