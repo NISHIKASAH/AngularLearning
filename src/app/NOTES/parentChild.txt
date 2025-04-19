@@ -1,0 +1,49 @@
+
+//user component.html
+
+<!-- 
+<button (click)="messagePassed()">click me</button> -->
+
+<button (click)="childFunction()">click Me</button>
+
+//user component.ts 
+
+export class UsercomponentComponent {
+  @Input()  user : string = '';
+  @Input() data : string = '' ;
+  // @Output() messageEvent = new EventEmitter<string>();
+  // messagePassed(){
+  //   this.messageEvent.emit('message from child component!');
+  // }
+  @Output() childMessage = new EventEmitter<string>();
+  childFunction(){
+    this.childMessage.emit('hey this is me from child component!')
+  }
+
+}
+
+//app.component.html
+<app-usercomponent [user] = "'daksha'" [data] ="'hello ,its weekend'"></app-usercomponent>
+
+<!-- <app-usercomponent (messageEvent)="receiveMessage($event)" ></app-usercomponent>
+<p>sjkjch sdhcj{{message}}</p> -->
+
+<app-usercomponent (childMessage)="parenFunction($event)"></app-usercomponent>
+<p>{{datafromChild }}</p>
+
+
+//app.component.ts
+export class AppComponent {
+title :string | null = '' ;
+// message : string = "";
+// receiveMessage ($event : string){
+//   this.message = $event;
+//   console.log("i am from parent" , this.message);
+
+// }
+datafromChild : string = "";
+parenFunction($event :string){
+  this.datafromChild = $event;
+  console.log('calling from parent component')
+}
+}
